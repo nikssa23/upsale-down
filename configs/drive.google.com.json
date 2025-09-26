@@ -1,0 +1,9 @@
+{
+  "patterns": [
+    {
+      "pattern": "Моят диск",
+      "lang": ["bg"],
+      "parentLevels": 15
+    }
+  ]
+}

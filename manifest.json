@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Upsale Blocker",
+  "version": "1.0",
+  "description": "Hides upsale messages based on configurable patterns per website.",
+  "permissions": ["scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/logo.png",
+    "32": "icons/logo.png",
+    "48": "icons/logo.png",
+    "128": "icons/logo.png"
+  }
+}
