@@ -1,9 +1,9 @@
 {
   "patterns": [
     {
-      "pattern": "Получете професионален имейл адрес, например @vashata-kompania.com",
+      "pattern": "Получете професионален имейл адрес",
       "lang": ["bg"],
-      "parentLevels": 13
+      "parentLevels": 9
     }
   ]
 }

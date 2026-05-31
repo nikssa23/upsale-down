@@ -5,55 +5,17 @@
     return window.location.hostname.replace(/^www\./, '');
   }
 
-  // All configs bundled here (add new domains as needed)
-  const UPSALE_CONFIGS = {
-    "drive.google.com": {
-      "patterns": [
-        {
-          "pattern": "Получете професионален имейл адрес",
-          "lang": ["bg"],
-          "parentLevels": 10
-        }
-      ]
-    },
-    "mail.google.com": {
-      "patterns": [
-        {
-          "pattern": "Използвате Gmail за бизнеса си?",
-          "lang": ["bg"],
-          "parentLevels": 12
-        },
-        {
-          "pattern":"Получаване на професионален имейл, например @your-company.com",
-          "lang": ["bg"],
-          "parentLevels": 3
-        },
-        {
-          "pattern":"Реклама",
-          "lang": ["bg"],
-          "parentLevels": 2
-        }
-      ]
-    },
-    "photos.google.com": {
-      "patterns": [
-        {
-          "pattern": "Получете 20% отстъпка за поръчки на фотоалбуми",
-          "lang": ["bg"],
-          "parentLevels": 2
-        }
-      ]
-    },
-    "calendar.google.com": {
-      "patterns": [
-        {
-          "pattern": "Използвате Gmail за бизнеса",
-          "lang": ["bg"],
-          "parentLevels": 12
-        }
-      ]
+  // Load config for the current domain from configs/{domain}.json
+  async function loadConfig(domain) {
+    try {
+      const url = chrome.runtime.getURL(`configs/${domain}.json`);
+      const response = await fetch(url);
+      if (!response.ok) return null;
+      return await response.json();
+    } catch (e) {
+      return null;
     }
-  };
+  }
 
   // Find and hide upsale messages
   function hideUpsaleMessages(config) {
@@ -93,7 +55,7 @@
   }
 
   const domain = getDomain();
-  const config = UPSALE_CONFIGS[domain];
+  const config = await loadConfig(domain);
   if (config) {
     // Run first check instantly
     hideUpsaleMessages(config);

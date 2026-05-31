@@ -1,0 +1,19 @@
+{
+  "patterns": [
+    {
+      "pattern": "Използвате Gmail за бизнеса си?",
+      "lang": ["bg"],
+      "parentLevels": 12
+    },
+    {
+      "pattern": "Получаване на професионален имейл, например @your-company.com",
+      "lang": ["bg"],
+      "parentLevels": 3
+    },
+    {
+      "pattern": "Реклама",
+      "lang": ["bg"],
+      "parentLevels": 2
+    }
+  ]
+}

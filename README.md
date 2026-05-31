@@ -24,9 +24,3 @@ This extension hides upsale messages and divs on websites, based on configurable
 1. Add or edit config files for each domain.
 2. Load the extension in Chrome (Developer mode > Load unpacked).
 3. Visit a site and upsale messages matching your patterns will be hidden.
-
-
-## Aditional project names
-- Dismisser
-- Upsale Down
-- DeAnnoier
